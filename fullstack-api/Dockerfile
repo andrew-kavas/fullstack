@@ -1,0 +1,23 @@
+# Use an official Node.js runtime as a parent image
+FROM node:14
+
+# Set the working directory
+WORKDIR /usr/src/app
+
+# Copy package.json and package-lock.json
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy the rest of the application code
+COPY . .
+
+# Create a symlink for src
+RUN ln -s /usr/src/app/src /usr/src/app/node_modules/src
+
+# Expose the port the app runs on
+EXPOSE 4000
+
+# Define the command to run the app
+CMD ["npm", "run", "dev"]
