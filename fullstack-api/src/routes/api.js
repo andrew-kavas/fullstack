@@ -6,6 +6,9 @@ const router = new Router();
 
 router.get('/hello', async ctx => {
   const result = await db.raw('SELECT NOW()');
+
+  // const test = await db.select().from('test');
+
   ctx.body = { message: `Hello World, current time: ${result.rows[0].now}` };
 });
 
