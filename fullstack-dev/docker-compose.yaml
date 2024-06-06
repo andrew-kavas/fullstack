@@ -2,11 +2,11 @@ version: '3'
 services:
   backend:
     build:
-      context: ./fullstack-api
+      context: ../fullstack-api
     ports:
       - "4000:4000"
     volumes:
-      - ./fullstack-api:/usr/src/app
+      - ../fullstack-api:/usr/src/app
     environment:
       - NODE_ENV=development
       - POSTGRES_USER=postgres
@@ -17,11 +17,11 @@ services:
 
   frontend:
     build:
-      context: ./fullstack-app
+      context: ../fullstack-app
     ports:
       - "3000:3000"
     volumes:
-      - ./fullstack-app:/usr/src/app
+      - ../fullstack-app:/usr/src/app
       - /usr/src/app/node_modules
     environment:
       - NODE_ENV=development
