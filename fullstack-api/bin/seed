@@ -1,0 +1,5 @@
+#!/bin/sh -e
+
+echo "Creating seed data..."
+node src/functions/seed.js
+echo "Done"
