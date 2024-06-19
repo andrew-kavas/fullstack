@@ -1,11 +1,11 @@
 #!/bin/sh -e
 
-# Run a command in the backend service.
+# Run a command in the api
 # Usage bin/run migrate, bin/run rollback, bin/run seed, etc.
 
 if [ ! "$1" ]; then
   echo 'Using remote images for all services.'
 else
-  echo 'Running bin'/$1 'in the backend service..'
-  docker compose run backend bin/$1
+  echo 'Running bin'/$1 'in the api..'
+  docker compose run api bin/$1
 fi

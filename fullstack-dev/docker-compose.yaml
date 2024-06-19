@@ -1,5 +1,5 @@
 services:
-  backend:
+  api:
     build:
       context: ../fullstack-api
     ports:
@@ -7,10 +7,12 @@ services:
     volumes:
       - ../fullstack-api:/usr/src/app
     environment:
-      - NODE_ENV=development
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=mydatabase
+      NODE_ENV: development
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydatabase
+      VERSION: development
+      TEST_SECRET:
     depends_on:
       - db
 
@@ -23,7 +25,7 @@ services:
       - ../fullstack-app:/usr/src/app
       - /usr/src/app/node_modules
     environment:
-      - NODE_ENV=development
+      NODE_ENV: development
 
   db:
     image: postgres:13

@@ -1,5 +1,6 @@
 import Router from 'koa-router';
 
+import config from '#src/config.js';
 import db from '#src/db.js';
 
 const { console } = globalThis;
@@ -11,6 +12,8 @@ router.get('/hello', async ctx => {
 
   const test = await db.select().from('users');
   console.log(test);
+
+  console.log(config);
 
   ctx.body = { message: `Hello World, current time: ${result.rows[0].now}` };
 });
