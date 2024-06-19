@@ -16,8 +16,16 @@ COPY . .
 # Create a symlink for src
 RUN ln -s /usr/src/app/src /usr/src/app/node_modules/src
 
+# Copy the bin directory
+COPY bin ./bin
+
+# Make the migrate and rollback scripts executable
+RUN chmod +x ./bin/migrate
+RUN chmod +x ./bin/rollback
+RUN chmod +x ./bin/seed
+
 # Expose the port the app runs on
 EXPOSE 4000
 
 # Define the command to run the app
-CMD ["npm", "run", "dev"]
+CMD ["sh", "-c", "./bin/seed && npm run dev"]

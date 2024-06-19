@@ -1,0 +1,3 @@
+#!/bin/sh -e
+
+npx knex migrate:latest --knexfile src/knexfile.js
