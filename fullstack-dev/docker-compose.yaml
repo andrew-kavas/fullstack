@@ -16,7 +16,7 @@ services:
     depends_on:
       - db
 
-  frontend:
+  app:
     build:
       context: ../fullstack-app
     ports:
@@ -26,6 +26,8 @@ services:
       - /usr/src/app/node_modules
     environment:
       NODE_ENV: development
+      VERSION: development
+      TEST_SECRET: test_secret
 
   db:
     image: postgres:13
