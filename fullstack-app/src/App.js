@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react';
 
 import config from '#src/config.js';
 
-const { console, fetch } = globalThis;
+const { console, fetch, window } = globalThis;
+
+console.log(globalThis);
 
 function App() {
   const [message, setMessage] = useState('');
@@ -17,6 +19,7 @@ function App() {
 
   return (
     <div className='flex items-center justify-center min-h-screen bg-gray-100'>
+      <p>API_URL: {window._env_.API_URL}</p>
       <h1 className='text-4xl text-blue-500'>{message}</h1>
     </div>
   );

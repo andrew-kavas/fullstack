@@ -19,6 +19,10 @@ RUN ln -s /usr/src/app/src /usr/src/app/node_modules/src
 # Expose the port the app runs on
 EXPOSE 3000
 
+# todo: check
+# ARG VERSION
+# ARG TEST_SECRET
+
 # Define the command to run the app
 CMD ["npm", "start"]
 
