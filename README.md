@@ -16,9 +16,11 @@ for example: `bin/run migrate`, `bin/run rollback` and `bin/run seed`
 
 
 <!-- TODO 
+.env file
 add work processor
 add api routing
 add app routing
+GH actions
 -->
 
 <!-- DONE 
