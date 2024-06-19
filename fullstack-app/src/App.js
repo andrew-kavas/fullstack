@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 
-const { fetch } = globalThis;
+import config from '#src/config.js';
+
+const { console, fetch } = globalThis;
 
 function App() {
   const [message, setMessage] = useState('');
@@ -10,6 +12,8 @@ function App() {
       .then(response => response.json())
       .then(data => setMessage(data.message));
   }, []);
+
+  console.log(config);
 
   return (
     <div className='flex items-center justify-center min-h-screen bg-gray-100'>
