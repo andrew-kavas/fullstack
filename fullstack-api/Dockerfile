@@ -2,7 +2,7 @@
 FROM node:14
 
 # Set the working directory
-WORKDIR /usr/src/app
+WORKDIR /app
 
 # Copy package.json and package-lock.json
 COPY package*.json ./
@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Create a symlink for src
-RUN ln -s /usr/src/app/src /usr/src/app/node_modules/src
+RUN ln -s /app/src /app/node_modules/src
 
 # Copy the bin directory
 COPY bin ./bin
