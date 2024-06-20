@@ -17,6 +17,8 @@ for example: `bin/run migrate`, `bin/run rollback` and `bin/run seed`
 
 <!-- TODO 
 .env file
+APP envars defined with script in index.html <head>
+
 add work processor
 add api routing
 add app routing
