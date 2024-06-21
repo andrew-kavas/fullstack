@@ -16,15 +16,27 @@ for example: `bin/run migrate`, `bin/run rollback` and `bin/run seed`
 
 
 <!-- TODO 
+NEXT:
+APP: 
 .env file
-APP envars defined with script in index.html <head>
+  defined with script in index.html <head> that pulls vars from a file
+  that is created every build
+find a web bundler, something like CORS or webpack?. look at Vite
 
-add work processor
-add api routing
-add app routing
+API:
+api routing
+api query language and schema builder
+work processor
+
+APP:
+app routing
+app disk and history
+
+OTHER:
 GH actions
 -->
 
 <!-- DONE 
-add db migration
+api .env file
+db migrations
 -->
