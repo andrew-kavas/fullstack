@@ -1,11 +1,32 @@
 services:
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydatabase
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  lb:
+    image: nginx:latest
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./src/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - api
+
   api:
     build:
       context: ../fullstack-api
     ports:
       - "4000:4000"
     volumes:
-      - ../fullstack-api:/usr/src/app
+      - ../fullstack-api:/app
     environment:
       NODE_ENV: development
       POSTGRES_USER: postgres
@@ -22,23 +43,12 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ../fullstack-app:/usr/src/app
-      - /usr/src/app/node_modules
+      - ../fullstack-app:/app
+      - /app/node_modules
     environment:
       NODE_ENV: development
       VERSION: development
       TEST_SECRET: test_secret
-
-  db:
-    image: postgres:13
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: mydatabase
-    ports:
-      - "5432:5432"
-    volumes:
-      - pgdata:/var/lib/postgresql/data
 
 volumes:
   pgdata:

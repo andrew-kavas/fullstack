@@ -15,7 +15,9 @@ router.get('/hello', async ctx => {
 
   console.log(config);
 
-  ctx.body = { message: `Hello World, current time: ${result.rows[0].now}` };
+  ctx.body = {
+    message: `Hello World, I'm Andrew Kavas! Current time: ${result.rows[0].now}`
+  };
 });
 
 export default router;
