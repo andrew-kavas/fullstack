@@ -1,4 +1,15 @@
 services:
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydatabase
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
   lb:
     image: nginx:latest
     ports:
@@ -6,6 +17,8 @@ services:
       - 443:443
     volumes:
       - ./src/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - api
 
   api:
     build:
@@ -36,17 +49,6 @@ services:
       NODE_ENV: development
       VERSION: development
       TEST_SECRET: test_secret
-
-  db:
-    image: postgres:13
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: mydatabase
-    ports:
-      - "5432:5432"
-    volumes:
-      - pgdata:/var/lib/postgresql/data
 
 volumes:
   pgdata:
