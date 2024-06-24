@@ -41,7 +41,7 @@ services:
     build:
       context: ../fullstack-app
     ports:
-      - "3000:3000"
+      - "3000:80"
     volumes:
       - ../fullstack-app:/app
       - /app/node_modules
