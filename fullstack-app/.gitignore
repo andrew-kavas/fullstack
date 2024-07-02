@@ -9,7 +9,7 @@
 /coverage
 
 # production
-/dist/
+/dist
 /build
 
 # misc
