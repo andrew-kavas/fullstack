@@ -1,10 +1,13 @@
 # Fullstack
 what: minimalist fullstack scaffold  
 why: prototyping fullstack applications  
-how: react app, koa api, persistent postgres volumes -- all dockerized and filled with examples / notes
+how: react app, built with vite, koa api, persistent postgres volumes -- all dockerized and filled with examples / notes
 
 ## to build and start:
-run bin/up from fullstack-dev directory
+clone this repo and cd into fullstack/fullstack-dev \
+`cd fullstack-dev`  
+`bin/setup`  
+`bin/up`
 
 ## to add a migration
 just add a new file to api/migrations/ OR
