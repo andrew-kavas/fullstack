@@ -11,52 +11,8 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 
-# # Build the React app
-RUN npm run build
+# Expose the port Vite uses by default
+EXPOSE 3000
 
-# Build the application
-# RUN npm run build
-
-# Stage 2: Serve the app using Nginx
-FROM nginx:stable-alpine as serve
-
-# Copy built assets from the 'build' stage
-COPY --from=build /app/dist /usr/share/nginx/html
-
-# Optional: if you have custom nginx configuration
-COPY nginx.conf /etc/nginx/nginx.conf
-
-# Expose port 80 to the outer world
-EXPOSE 80
-
-# Start Nginx and keep it running in the foreground
-CMD ["nginx", "-g", "daemon off;"]
-
-# # Expose the port the app runs on
-# EXPOSE 3000
-
-# RUN \
-#   export NGINX_VERSION='1.27.0' && \
-#   apk add --no-cache brotli-dev pcre-dev && \
-#   apk add --no-cache --virtual tmp g++ git make && \
-#   cd /tmp && \
-#   mkdir nginx ngx_brotli ngx_headers_more && \
-#   wget -O - https://nginx.org/download/nginx-$NGINX_VERSION.tar.gz | \
-#     tar xz --strip-components 1 -C nginx && \
-#   git clone --depth 1 --recurse-submodules \
-#     https://github.com/google/ngx_brotli && \
-#   wget -O - https://github.com/openresty/headers-more-nginx-module/archive/master.tar.gz | \
-#     tar xz --strip-components 1 -C ngx_headers_more && \
-#   cd nginx && \
-#   ./configure \
-#     --add-module=/tmp/ngx_brotli \
-#     --add-module=/tmp/ngx_headers_more \
-#     --without-http_gzip_module && \
-#   make && \
-#   make install && \
-#   ln -s /usr/local/nginx/sbin/nginx /usr/local/bin/nginx && \
-#   rm -fr nginx ngx_brotli ngx_headers_more && \
-#   apk del --purge tmp
-
-# # Define the command to run the app
-# CMD ["npm", "run", "dev"]
+# Command to run Vite
+CMD ["npm", "run", "dev"]
