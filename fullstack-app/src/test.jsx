@@ -21,6 +21,7 @@ export default () => {
   return (
     <div>
       <h1>Test</h1>
+      <div className='text-orange-500'>Testing</div>
       {data && <>{data}</>}
     </div>
   );

@@ -11,6 +11,7 @@ export default defineConfig({
   plugins: [react()]
 });
 
+// todo: vite config options
 // import react from '@vitejs/plugin-react';
 // import { defineConfig } from 'vite';
 
