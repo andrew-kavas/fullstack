@@ -14,11 +14,13 @@ const seed = async () => {
       .into('users')
       .onConflict('id')
       .ignore();
+
     await db
       .insert(Object.values(groups))
       .into('groups')
       .onConflict('id')
       .ignore();
+
     await db
       .insert(Object.values(memberships))
       .into('memberships')

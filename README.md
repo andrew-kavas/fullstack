@@ -17,6 +17,8 @@ for example: `bin/run migrate`, `bin/run rollback` and `bin/run seed`
 
 <!-- TODO 
 NEXT:
+Vite!
+
 APP: 
 .env file
   defined with script in index.html <head> that pulls vars from a file
