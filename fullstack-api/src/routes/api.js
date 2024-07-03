@@ -20,4 +20,8 @@ router.get('/hello', async ctx => {
   };
 });
 
+router.get('/error', () => {
+  throw new Error('This is an error');
+});
+
 export default router;
