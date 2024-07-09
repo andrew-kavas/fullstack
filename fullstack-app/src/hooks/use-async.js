@@ -1,15 +1,10 @@
 import { useMemo, useRef, useState } from 'react';
 
-// import ourFaultError from '#src/constants/our-fault-error.js';
-// import reportError from '#src/functions/report-error.js';
+import reportError from '#src/functions/report-error.js';
 import useEvent from '#src/hooks/use-event.js';
 import useToggle from '#src/hooks/use-toggle.js';
 
-const { console } = globalThis;
-
 const ourFaultError = new Error('Our part of the code failed');
-
-const reportError = er => console.error(er);
 
 const isOurFault = er =>
   er instanceof EvalError ||
@@ -42,7 +37,6 @@ export default fn => {
       try {
         _data = await fn(...args);
       } catch (er) {
-        // console.log('oijoij', er);
         if (isOurFault(er)) {
           reportError(er);
           _error = ourFaultError;
