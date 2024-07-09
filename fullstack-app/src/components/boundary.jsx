@@ -1,10 +1,9 @@
 import { Component, Suspense } from 'react';
 
 import LoadingArea from '#src/components/loading-area.jsx';
+import reportError from '#src/functions/report-error.js';
 
 const { console } = globalThis;
-
-const reportError = error => console.log(error);
 
 class ErrorBoundary extends Component {
   constructor(...args) {
