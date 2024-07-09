@@ -25,31 +25,17 @@ class ErrorBoundary extends Component {
   }
 
   async componentDidCatch(error) {
-    // if (_fullstackOnError) _fullstackOnError(error);
-    // else {
-    // let newerVersion;
-    // try {
-    //   newerVersion = await getNewerVersion();
-    // } catch {
-    //   error = new Error(errorMessages.connectionFailed);
-    // }
-
     if (!this._isMounted) {
       console.log('isMounted');
       return;
     }
 
-    // if (newerVersion) return location.reload();
-
     error ??= new Error('Unknown Error');
 
-    // if (error.message !== errorMessages.connectionFailed)
     reportError(error);
-    // }
 
     this.setState({ error, isLoading: false });
   }
-  // }
 
   render() {
     const { error, isLoading } = this.state;
@@ -57,16 +43,7 @@ class ErrorBoundary extends Component {
     if (isLoading) return <LoadingArea />;
 
     if (error) {
-      return (
-        <div>{error}</div>
-        // <FullNotice type='error'>
-        //   {version === 'development' ? (
-        //     <DevelopmentError error={error} />
-        //   ) : (
-        //     ourFaultError
-        //   )}
-        // </FullNotice>
-      );
+      return <div>{error}</div>;
     }
 
     return this.props.children;
