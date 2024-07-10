@@ -11,8 +11,8 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 
-# Expose the port Vite uses by default
-# EXPOSE 3000
+# todo: conditionally expose 3000 if dev or 80 if prod
+EXPOSE 3000
 EXPOSE 80
 
 # Command to run Vite

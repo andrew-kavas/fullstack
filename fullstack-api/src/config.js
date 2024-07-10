@@ -6,19 +6,23 @@ const { VERSION: version } = env;
 
 if (version === 'development') {
   env = {
-    // TODO: Update these values
-    // add /api to API_URL foor fullstack api
-    FULLSTACK_API_URL: 'http://localhost:4000',
-    FULLSTACK_APP_URL: 'http://localhost:3000',
+    POSTGRES_URL: 'postgresql://postgres:password@db/mydatabase',
+    apiUrl: 'http://localhost:4000',
+    appUrl: 'http://localhost:3000',
     ...env
   };
 }
 
-export default {
+const config = {
   fullstack: {
     apiUrl: env.FULLSTACK_API_URL,
     appUrl: env.FULLSTACK_APP_URL
   },
+  postgres: {
+    url: env.POSTGRES_URL
+  },
   testSecret: env.TEST_SECRET,
   version
 };
+
+export default config;
