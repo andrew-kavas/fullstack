@@ -5,7 +5,8 @@ import { defineConfig } from 'vite';
 export default defineConfig({
   server: {
     host: '0.0.0.0',
-    port: 3000, // Ensure this is consistent with your Docker Compose setup
+    // port: 3000, // Ensure this is consistent with your Docker Compose setup
+    port: 80, // Ensure this is consistent with your Docker Compose setup
     strictPort: true // Ensures Vite will only start if the port is available
   },
   plugins: [react()]

@@ -15,4 +15,4 @@ COPY . .
 EXPOSE 4000
 
 # Define the command to run the app
-CMD ["sh", "-c", "./bin/seed && npm run dev"]
+CMD ["sh", "-c", "./bin/migrate && ./bin/seed && npm run dev"]
