@@ -1,14 +1,17 @@
 import Clickable from '#src/components/clickable.jsx';
 import LoadingArea from '#src/components/loading-area.jsx';
+import config from '#src/config.js';
 import useAsync from '#src/hooks/use-async.js';
 
 const { fetch } = globalThis;
 
+const { apiUrl } = config.fullstack;
+
 const Test = () => {
   const { data, error, execute, isLoading } = useAsync(async () => {
     // switch to the commented line to test the error handling
-    const response = await fetch('http://localhost:4000/api/hello');
-    // const response = await fetch('http://localhost:4000/api/error');
+    const response = await fetch(`${apiUrl}/api/hello`);
+    // const response = await fetch(`${apiUrl}/api/error`);
 
     if (!response.ok) {
       throw new Error('Failed to fetch data');

@@ -7,6 +7,12 @@ const { console } = globalThis;
 
 const router = new Router();
 
+router.get('/test', async ctx => {
+  ctx.body = {
+    message: `Hello World!`
+  };
+});
+
 router.get('/hello', async ctx => {
   const result = await db.raw('SELECT NOW()');
 
