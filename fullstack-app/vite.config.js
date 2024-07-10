@@ -2,36 +2,17 @@
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 
+import config from '#src/config.js';
+
 export default defineConfig({
+  // add env to process for react
+  define: {
+    'process.env': {}
+  },
   server: {
     host: '0.0.0.0',
-    port: 3000, // Ensure this is consistent with your Docker Compose setup
+    port: config.port, // Ensure this is consistent with your Docker Compose setup
     strictPort: true // Ensures Vite will only start if the port is available
   },
   plugins: [react()]
 });
-
-// todo: vite config options
-// import react from '@vitejs/plugin-react';
-// import { defineConfig } from 'vite';
-
-// // https://vitejs.dev/config/
-// export default defineConfig({
-//   plugins: [react()],
-//   server: {
-//     port: 3000
-//   },
-//   // build: {
-//   //   outDir: 'build'
-//   // },
-//   build: {
-//     rollupOptions: {
-//       output: {
-//         format: 'es',
-//         strict: false,
-//         // entryFileNames: '[name].js',
-//         dir: 'dist/'
-//       }
-//     }
-//   }
-// });

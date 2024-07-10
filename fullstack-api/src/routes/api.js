@@ -7,6 +7,12 @@ const { console } = globalThis;
 
 const router = new Router();
 
+router.get('/test', async ctx => {
+  ctx.body = {
+    message: `Hello World!`
+  };
+});
+
 router.get('/hello', async ctx => {
   const result = await db.raw('SELECT NOW()');
 
@@ -18,6 +24,10 @@ router.get('/hello', async ctx => {
   ctx.body = {
     message: `Hello World, I'm Andrew Kavas! Current time: ${result.rows[0].now}`
   };
+});
+
+router.get('/error', () => {
+  throw new Error('This is an error');
 });
 
 export default router;
