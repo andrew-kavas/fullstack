@@ -20,6 +20,7 @@ for example: `bin/run migrate`, `bin/run rollback` and `bin/run seed`
 
 <!-- TODO 
 NEXT:
+dev vs prod envars
 Vite!
 
 APP: 
