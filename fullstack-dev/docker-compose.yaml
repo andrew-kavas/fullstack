@@ -19,9 +19,6 @@ services:
       - ../fullstack-api:/app
     environment:
       NODE_ENV: development
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: mydatabase
       VERSION: development
       TEST_SECRET:
     depends_on:

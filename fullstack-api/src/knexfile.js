@@ -1,29 +1,11 @@
-// todo: prod vs dev config
+import config from '#src/config.js';
 
-// prod
+const { url } = config.postgres;
+
 export default {
   client: 'pg',
-  connection: {
-    host: 'todo',
-    user: 'todo',
-    password: 'todo',
-    database: 'todo'
-  },
+  connection: url,
   migrations: {
     directory: '../src/migrations'
   }
 };
-
-// dev
-// export default {
-//   client: 'pg',
-//   connection: {
-//     host: 'db',
-//     user: 'postgres',
-//     password: 'password',
-//     database: 'mydatabase'
-//   },
-//   migrations: {
-//     directory: '../src/migrations'
-//   }
-// };
