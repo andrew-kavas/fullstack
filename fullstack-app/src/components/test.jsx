@@ -10,8 +10,8 @@ const { apiUrl } = config.fullstack;
 const Test = () => {
   const { data, error, execute, isLoading } = useAsync(async () => {
     // switch to the commented line to test the error handling
-    const response = await fetch(`${apiUrl}/api/hello`);
-    // const response = await fetch(`${apiUrl}/api/error`);
+    // const response = await fetch(`${apiUrl}/api/hello`);
+    const response = await fetch(`${apiUrl}/api/error`);
 
     if (!response.ok) {
       throw new Error('Failed to fetch data');

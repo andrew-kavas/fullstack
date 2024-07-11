@@ -20,10 +20,12 @@ for example: `bin/run migrate`, `bin/run rollback` and `bin/run seed`
 ## Environment / Deploy
 POSTGRES_URL envar set in fly.io secrets
 
-<!-- TODO 
-NEXT:
+TODO 
 dev vs prod envars
-Vite!
+  APP ENVARS -- RUN DIFFERENT DOCKER COMMANDS DEPENDING ON PROD OR DEV
+
+deploy to fly through GH actions
+  on push to main
 
 APP: 
 .env file
@@ -42,9 +44,10 @@ app disk and history
 
 OTHER:
 GH actions
--->
+
 
 <!-- DONE 
+Vite!
 api .env file
 db migrations
 -->

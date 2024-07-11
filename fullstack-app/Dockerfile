@@ -15,5 +15,10 @@ COPY . .
 EXPOSE 3000
 EXPOSE 80
 
+# todo: multi-stage build with build-target specified in fly config and compose file (or bin/up)
+
 # Command to run Vite
+# for "production"
+# CMD ["npm", "run", "devBuild"] 
+# for "development"
 CMD ["npm", "run", "dev"]

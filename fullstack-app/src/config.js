@@ -1,4 +1,4 @@
-const { process } = globalThis;
+const { console, process } = globalThis;
 
 let { env } = process;
 
@@ -6,18 +6,25 @@ const { VERSION: version } = env;
 
 if (version === 'development') {
   env = {
+    ...env,
     FULLSTACK_API_URL: 'http://localhost:4000',
-    FULLSTACK_APP_URL: 'http://localhost:3000',
-    ...env
+    FULLSTACK_APP_URL: 'http://localhost:3000'
   };
 }
 
+console.log('env2', env);
+
 const config = {
   fullstack: {
-    apiUrl: 'https://fullstack-api.fly.dev',
-    appUrl: 'https://fullstack-app.fly.dev'
+    // apiUrl: 'https://fullstack-api.fly.dev',
+    apiUrl: env.FULLSTACK_API_URL,
+    // appUrl: 'https://fullstack-app.fly.dev'
+    appUrl: env.FULLSTACK_APP_URL
   },
-  port: version === 'development' ? 3000 : 80
+  port: version === 'development' ? 3000 : 80,
+  version
 };
+
+console.log('config', config);
 
 export default config;
