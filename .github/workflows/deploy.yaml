@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main  # Specifies that this workflow runs on pushes to the main branch
+      - gh-actions-ci  # Specifies that this workflow runs on pushes to the main branch
 
 jobs:
   deploy:
