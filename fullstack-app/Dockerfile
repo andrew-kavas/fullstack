@@ -12,13 +12,16 @@ RUN npm install
 COPY . .
 
 # todo: conditionally expose 3000 if dev or 80 if prod
-EXPOSE 3000
-EXPOSE 80
+# EXPOSE 3000
+# EXPOSE 80
 
 # todo: multi-stage build with build-target specified in fly config and compose file (or bin/up)
 
 # Command to run Vite
 # for "production"
-# CMD ["npm", "run", "devBuild"] 
+FROM build as production
+CMD ["npm", "run", "devBuild"] 
+
 # for "development"
+FROM build as development
 CMD ["npm", "run", "dev"]
