@@ -2,4 +2,4 @@
 
 echo "Creating seed data..."
 node src/functions/seed.js
-echo "Done"
+echo "Done seeding data..."
