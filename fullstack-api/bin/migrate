@@ -1,3 +1,5 @@
 #!/bin/sh -e
 
+echo "Running migrations..."
 npx knex migrate:latest --knexfile src/knexfile.js
+echo "Done migrating..."

@@ -7,6 +7,7 @@ app = 'fullstack-api'
 primary_region = 'atl'
 
 [build]
+  build-target = "production"
 
 [http_service]
   internal_port = 4000
