@@ -1,4 +1,4 @@
-const { console, process } = globalThis;
+const { process } = globalThis;
 
 let { env } = process;
 
@@ -12,8 +12,6 @@ if (version === 'development') {
   };
 }
 
-console.log('env2', env);
-
 const config = {
   fullstack: {
     // apiUrl: 'https://fullstack-api.fly.dev',
@@ -24,7 +22,5 @@ const config = {
   port: version === 'development' ? 3000 : 80,
   version
 };
-
-console.log('config', config);
 
 export default config;
