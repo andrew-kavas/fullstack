@@ -1,3 +1,5 @@
 #!/bin/sh -e
 
+echo "Running rollback..."
 npx knex migrate:rollback --knexfile src/knexfile.js
+echo "Done rolling back..."
