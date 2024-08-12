@@ -6,9 +6,14 @@
   "imports": {
     "#*": "./*"
   },
+  "nodemonConfig": {
+    "watch": ["src"],
+    "ext": "js,ts,json",
+    "exec": "node --loader ts-node/esm src/index.ts"
+  },
   "scripts": {
     "start": "node src/index.ts",
-    "dev": "node --loader ts-node/esm src/index.ts"
+    "dev": "nodemon"
   },
   "dependencies": {
     "@koa/cors": "^5.0.0",
