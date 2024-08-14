@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import Clickable from '#src/components/clickable.jsx';
 import LoadingArea from '#src/components/loading-area.jsx';
 import config from '#src/config.js';
@@ -7,7 +9,12 @@ const { fetch } = globalThis;
 
 const { apiUrl } = config.fullstack;
 
-const Test = () => {
+type TestProps = {
+  testInput: string;
+  testOptionalNumber?: number;
+};
+
+const Test = ({ testInput, testOptionalNumber }: TestProps) => {
   const { data, error, execute, isLoading } = useAsync(async () => {
     // switch to the commented line to test the error handling
     const response = await fetch(`${apiUrl}/api/hello`);
@@ -25,6 +32,8 @@ const Test = () => {
     <>
       <div className='text-orange-500'>Testing</div>
       <Clickable onClick={execute}>Fetch Data</Clickable>
+      <div>{testInput}</div>
+      <div>{testOptionalNumber}</div>
       {isLoading && <LoadingArea />}
       {error && <div className='text-red-500'>Error: {error.message}</div>}
       {data && <div className='text-green-500'>{data}</div>}

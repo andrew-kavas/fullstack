@@ -1,7 +1,8 @@
-import reactLogo from '#src/assets/react.svg';
-import Test from '#src/components/test.jsx';
-
 import viteLogo from '/vite.svg';
+
+import reactLogo from '#src/assets/react.svg';
+import Test from '#src/components/test.tsx';
+
 import '#src/App.css';
 
 const Header = () => (
@@ -18,7 +19,7 @@ const Header = () => (
 const App = () => (
   <>
     <Header />
-    <Test />
+    <Test testInput='test input string' testOptionalNumber={4} />
   </>
 );
 
