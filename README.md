@@ -21,6 +21,8 @@ for example: `bin/run migrate`, `bin/run rollback` and `bin/run seed`
 POSTGRES_URL envar set in fly.io secrets
 
 TODO 
+try jsdoc
+
 dev vs prod envars
   APP ENVARS -- RUN DIFFERENT DOCKER COMMANDS DEPENDING ON PROD OR DEV
 
