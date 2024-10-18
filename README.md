@@ -20,7 +20,9 @@ for example: `bin/run migrate`, `bin/run rollback` and `bin/run seed`
 ## Environment / Deploy
 POSTGRES_URL envar set in fly.io secrets
 
-TODO 
+TODO  
+new eslint-config
+
 dev vs prod envars
   APP ENVARS -- RUN DIFFERENT DOCKER COMMANDS DEPENDING ON PROD OR DEV
 
@@ -34,6 +36,7 @@ APP:
 find a web bundler, something like CORS or webpack?. look at Vite
 
 API:
+createdAt on every table
 api routing
 api query language and schema builder
 work processor
@@ -47,6 +50,7 @@ GH actions
 
 
 <!-- DONE 
+try jsdoc
 Vite!
 api .env file
 db migrations

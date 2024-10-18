@@ -7,7 +7,8 @@ const { fetch } = globalThis;
 
 const { apiUrl } = config.fullstack;
 
-const Test = () => {
+/** @param {{ testParram1: string; testParram2?: number }} props */
+const Test = ({ testParram1 }) => {
   const { data, error, execute, isLoading } = useAsync(async () => {
     // switch to the commented line to test the error handling
     const response = await fetch(`${apiUrl}/api/hello`);
@@ -26,6 +27,7 @@ const Test = () => {
       <div className='text-orange-500'>Testing</div>
       <Clickable onClick={execute}>Fetch Data</Clickable>
       {isLoading && <LoadingArea />}
+      {testParram1}
       {error && <div className='text-red-500'>Error: {error.message}</div>}
       {data && <div className='text-green-500'>{data}</div>}
     </>

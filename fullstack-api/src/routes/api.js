@@ -2,12 +2,16 @@ import Router from 'koa-router';
 
 import config from '#src/config.js';
 import db from '#src/db.js';
+import test from '#src/functions/test.js';
 
 const { console } = globalThis;
 
 const router = new Router();
 
 router.get('/test', async ctx => {
+  const t1 = test({ testParam: 'ok' });
+  console.log(t1);
+
   ctx.body = {
     message: `Hello World!`
   };
