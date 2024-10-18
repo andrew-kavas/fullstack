@@ -1,5 +1,6 @@
 #!/bin/sh -e
 
+# todo: rewrite to show detailed error info with locations
 maxTscErrors=0
 
 node_modules/.bin/eslint --color --quiet "$@" src &
