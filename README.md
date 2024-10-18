@@ -36,6 +36,7 @@ APP:
 find a web bundler, something like CORS or webpack?. look at Vite
 
 API:
+createdAt on every table
 api routing
 api query language and schema builder
 work processor
