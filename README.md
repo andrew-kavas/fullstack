@@ -20,20 +20,23 @@ for example: `bin/run migrate`, `bin/run rollback` and `bin/run seed`
 ## Environment / Deploy
 POSTGRES_URL envar set in fly.io secrets
 
-TODO  
-new eslint-config
+TODO \
+deploy through GH actions \
+  on push to main 
+  to fly if configured 
 
-dev vs prod envars
-  APP ENVARS -- RUN DIFFERENT DOCKER COMMANDS DEPENDING ON PROD OR DEV
+internal slack notifications 
 
-deploy to fly through GH actions
-  on push to main
+new eslint-config \
+rewrite linter
+  show detailed tsc errors 
 
-APP: 
+dev vs prod envars \
+  APP ENVARS -- RUN DIFFERENT DOCKER COMMANDS DEPENDING ON PROD OR DEV 
+
+APP: \
 .env file
-  defined with script in index.html <head> that pulls vars from a file
-  that is created every build
-find a web bundler, something like CORS or webpack?. look at Vite
+  defined with script in index.html <head> that pulls vars from a file that is created every build
 
 API:
 createdAt on every table
