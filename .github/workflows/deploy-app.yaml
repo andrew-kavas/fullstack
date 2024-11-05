@@ -1,0 +1,65 @@
+name: Deploy app to Fly.io
+
+on:
+  push:
+    paths:
+      - fullstack-app/**
+    branches:
+      - main  # Specifies that this workflow runs on pushes to the main branch
+      - ci-cd  # todo: remove
+      - gh-actions-ci  # todo: remove
+
+jobs:
+  deploy:
+    name: Deploy API
+    runs-on: ubuntu-latest  # Specifies the runner environment
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4  # Checks out your repository under $GITHUB_WORKSPACE
+
+    - name: setup flyctl
+      uses: superfly/flyctl-actions/setup-flyctl@master
+
+    - name: fly deploy
+      uses: superfly/flyctl-actions/setup-flyctl@master
+      run: cd fullstack-app && flyctl deploy --remote-only
+      env:
+        FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+
+    # - name: Set up Node.js
+    #   uses: actions/setup-node@v2
+    #   with:
+    #     node-version: '14'  # Set this to the version of Node.js that matches your project requirements
+
+    # - name: Check for changes in fullstack-app
+    #   id: api_changes
+    #   uses: jitterbit/get-changed-files@v1
+    #   with:
+    #     format: 'space-delimited'
+    #     token: ${{ secrets.GITHUB_TOKEN }}
+
+    # - name: Deploy API to Fly.io if changed
+    #   if: contains(steps.api_changes.outputs.all, 'fullstack-app/')
+    #   run: |
+    #     cd fullstack-app
+    #     flyctl deploy --app your-fly-app-name-api
+
+    # - name: Check for changes in fullstack-app
+    #   id: app_changes
+    #   uses: jitterbit/get-changed-files@v1
+    #   with:
+    #     format: 'space-delimited'
+    #     token: ${{ secrets.GITHUB_TOKEN }}
+
+    # - name: Deploy APP to Fly.io if changed
+    #   if: contains(steps.app_changes.outputs.all, 'fullstack-app/')
+    #   run: |
+    #     cd fullstack-app
+    #     flyctl deploy --app your-fly-app-name-app
+
+    # - name: Login to Fly.io
+    #   run: flyctl auth login --token ${{ secrets.FLY_API_TOKEN }}
+    #   env:
+    #     FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+
+
