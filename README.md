@@ -27,6 +27,8 @@ deploy through GH actions \
 
 internal slack notifications 
 
+rate-limiting
+
 new eslint-config \
 rewrite linter
   show detailed tsc errors 
