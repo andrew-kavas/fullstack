@@ -7,6 +7,8 @@ const { fetch } = globalThis;
 
 const { apiUrl } = config.fullstack;
 
+// todo: revert
+// test change to app
 /** @param {{ testParram1: string; testParram2?: number }} props */
 const Test = ({ testParram1 }) => {
   const { data, error, execute, isLoading } = useAsync(async () => {
