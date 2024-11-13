@@ -20,7 +20,8 @@ for example: `bin/run migrate`, `bin/run rollback` and `bin/run seed`
 ## Environment / Deploy
 POSTGRES_URL envar set in fly.io secrets
 
-FLY_API_TOKEN set in GH secrets
+FLY_API_TOKEN_API set in GH secrets
+FLY_API_TOKEN_APP set in GH secrets
 
 TODO \
 deploy through GH actions \
