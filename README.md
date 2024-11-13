@@ -24,10 +24,6 @@ FLY_API_TOKEN_API set in GH secrets
 FLY_API_TOKEN_APP set in GH secrets
 
 TODO \
-deploy through GH actions \
-  on push to main 
-  to fly if configured 
-
 internal slack notifications 
 
 rate-limiting
@@ -53,11 +49,13 @@ APP:
 app routing
 app disk and history
 
-OTHER:
-GH actions
-
+OTHER: \
 
 <!-- DONE 
+deploy through GH actions \
+  on push to main 
+  to fly if configured 
+
 try jsdoc
 Vite!
 api .env file
