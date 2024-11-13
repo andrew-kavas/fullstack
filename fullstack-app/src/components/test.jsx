@@ -7,12 +7,12 @@ const { fetch } = globalThis;
 
 const { apiUrl } = config.fullstack;
 
-/** @param {{ testParram1: string; testParram2?: number }} props */
-const Test = ({ testParram1 }) => {
+/** @param {{ testParam1: string; testError?: boolean }} props */
+const Test = ({ testParam1, testError }) => {
   const { data, error, execute, isLoading } = useAsync(async () => {
-    // switch to the commented line to test the error handling
-    const response = await fetch(`${apiUrl}/api/hello`);
-    // const response = await fetch(`${apiUrl}/api/error`);
+    const response = await fetch(
+      `${apiUrl}/api/${testError ? 'error' : 'hello'}`
+    );
 
     if (!response.ok) {
       throw new Error('Failed to fetch data');
@@ -25,9 +25,11 @@ const Test = ({ testParram1 }) => {
   return (
     <>
       <div className='text-orange-500'>Testing</div>
-      <Clickable onClick={execute}>Fetch Data</Clickable>
+      <Clickable onClick={execute}>
+        {testError ? 'Test Error' : 'Fetch Data'}
+      </Clickable>
       {isLoading && <LoadingArea />}
-      {testParram1}
+      <div>testParam1: {testParam1} </div>
       {error && <div className='text-red-500'>Error: {error.message}</div>}
       {data && <div className='text-green-500'>{data}</div>}
     </>
