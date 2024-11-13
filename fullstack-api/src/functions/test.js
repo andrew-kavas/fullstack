@@ -6,5 +6,5 @@ const test = ({ testParam }) => {
 };
 
 // todo: revert
-// test change to api 2
+// test change to api 3
 export default test;
