@@ -5,6 +5,4 @@ const test = ({ testParam }) => {
   };
 };
 
-// todo: revert
-// test change to api 3
 export default test;
