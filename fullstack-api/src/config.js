@@ -4,6 +4,8 @@ let { env } = process;
 
 const { VERSION: version } = env;
 
+// test api change
+
 if (version === 'development') {
   env = {
     POSTGRES_URL: 'postgresql://postgres:password@db/mydatabase',
