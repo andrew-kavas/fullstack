@@ -1,0 +1,25 @@
+name: Deploy app to Fly.io
+
+on:
+  push:
+    paths:
+      - fullstack-app/**
+    branches:
+      - main  # Specifies that this workflow runs on pushes to the main branch
+      # - ci-cd  # uncomment to test workflow on ci-cd branch
+
+jobs:
+  deploy:
+    name: Deploy APP
+    runs-on: ubuntu-latest  # Specifies the runner environment
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4  # Checks out your repository under $GITHUB_WORKSPACE
+
+    - name: setup flyctl
+      uses: superfly/flyctl-actions/setup-flyctl@master
+
+    - name: fly deploy
+      run: cd fullstack-app && flyctl deploy --remote-only
+      env:
+        FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN_APP }}

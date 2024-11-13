@@ -18,8 +18,8 @@ const Header = () => (
 const App = () => (
   <>
     <Header />
-    <Test testParram1={'ok'} />
-    <Test testParram1='ok' testParram2={2} />
+    <Test testParam1={'ok'} />
+    <Test testParam1='ok' testError={true} />
   </>
 );
 
