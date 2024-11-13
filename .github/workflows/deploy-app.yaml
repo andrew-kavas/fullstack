@@ -6,7 +6,7 @@ on:
       - fullstack-app/**
     branches:
       - main  # Specifies that this workflow runs on pushes to the main branch
-      - ci-cd  # todo: remove
+      # - ci-cd  # uncomment to test workflow on ci-cd branch
 
 jobs:
   deploy:
