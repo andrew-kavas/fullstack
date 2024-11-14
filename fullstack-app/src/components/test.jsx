@@ -7,6 +7,7 @@ const { fetch } = globalThis;
 
 const { apiUrl } = config.fullstack;
 
+// test
 /** @param {{ testParam1: string; testError?: boolean }} props */
 const Test = ({ testParam1, testError }) => {
   const { data, error, execute, isLoading } = useAsync(async () => {
