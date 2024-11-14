@@ -25,15 +25,15 @@ for example: `bin/run migrate`, `bin/run rollback` and `bin/run seed`
 
 ## TODO:
 APP: \
+app routing \
+app disk and history \
 .env file
   defined with script in index.html <head> that pulls vars from a file that is created every build
-app routing
-app disk and history
 
 API:
-createdAt on every table
-api routing
-api query language and schema builder
+createdAt on every table \
+api routing \
+api query language and schema builder \
 work processor
 
 OTHER: \
@@ -44,7 +44,10 @@ new eslint-config \
 rewrite linter
   show detailed tsc errors \
 query language \
-rate-limiting
+rate-limiting \
+nginx \
+tests \
+error reporting
 
 
 <!-- DONE 

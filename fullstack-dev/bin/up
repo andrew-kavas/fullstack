@@ -1,3 +1,5 @@
 #!/bin/sh -e
 
-docker compose up --build
+bin/down
+docker compose up -d --build
+docker compose logs -f db api app
