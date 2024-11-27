@@ -1,0 +1,24 @@
+#!/bin/sh -e
+
+# todo: rewrite to show detailed error info with locations
+maxTscErrors=0
+
+node_modules/.bin/eslint --color --quiet "$@" src &
+eslintPid=$!
+
+(
+  tscErrors=$(
+    node node_modules/typescript/lib/tsc.js |
+    fgrep '): error TS' |
+    wc -l |
+    tr -d ' '
+  )
+  if [ $tscErrors -gt $maxTscErrors ]; then
+    echo "The $tscErrors TSC errors exceeds the limit of $maxTscErrors"
+    exit 1
+  else
+    echo "The $tscErrors TSC errors is within the limit of $maxTscErrors"
+  fi
+)
+
+wait $eslintPid

@@ -19,13 +19,19 @@ set FLY_API_TOKEN_APP in GH secrets
 just add a new file to api/migrations/ OR
 knex migrate:make migration_name --knexfile src/knexfile.js
 
-## db functions
-from fullstack-dev, simply run: `bin/run $FUNCTION`
-for example: `bin/run migrate`, `bin/run rollback` and `bin/run seed`
+## running docker compose commands
+`dc exec {{service}} {{command}}` \
+examples: \
+`dc exec api bin/migrate`
+`dc exec api bin/rollback`
+`dc exec api bin/lint`
+`dc exec api bin/seed`
+`dc exec app bin/lint`
 
 ## TODO:
 APP: \
 app routing \
+lazyloading \
 app disk and history \
 .env file
   defined with script in index.html <head> that pulls vars from a file that is created every build
